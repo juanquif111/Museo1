@@ -14,3 +14,40 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@font-face{
+    font-family:'GenerationSeptember';
+    src:url(../assets/fonts/GenerationSeptember.ttf);
+}
+@font-face{
+    font-family: 'RobotoSlab-Bold';
+    src:url(../assets/fonts/RobotoSlab-Bold.ttf);
+}
+ion-card-title{
+    font-family: 'RobotoSlab-Bold';
+    color:red !important;
+    font-weight: bold;
+    text-align: left;
+ //   background:rgba(172,125,18,0);  
+   }
+button{
+    font-family: 'RobotoSlab-Bold';
+    color:#FF0000 !important;    
+}
+h2{
+    font-family: 'RobotoSlab-Bold';
+    color:#A901DB !important;
+    font-weight: bold;
+}
+ion-content{
+    background: rgba(20,62,169,1);
+    background: -moz-linear-gradient(left, rgba(20,62,169,1) 0%, rgba(19,55,159,0.43) 45%, rgba(17,47,146,0.43) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(20,62,169,1)), color-stop(45%, rgba(19,55,159,0.43)), color-stop(100%, rgba(17,47,146,0.43)));
+    background: -webkit-linear-gradient(left, rgba(20,62,169,1) 0%, rgba(19,55,159,0.43) 45%, rgba(17,47,146,0.43) 100%);
+    background: -o-linear-gradient(left, rgba(20,62,169,1) 0%, rgba(19,55,159,0.43) 45%, rgba(17,47,146,0.43) 100%);
+    background: -ms-linear-gradient(left, rgba(20,62,169,1) 0%, rgba(19,55,159,0.43) 45%, rgba(17,47,146,0.43) 100%);
+    background: linear-gradient(to right, rgba(20,62,169,1) 0%, rgba(19,55,159,0.43) 45%, rgba(17,47,146,0.43) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#143ea9', endColorstr='#112f92', GradientType=1 );
+
+}
+

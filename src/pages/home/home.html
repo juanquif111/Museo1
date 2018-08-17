@@ -1,14 +1,63 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            <h1 align="center">APP BIBLIOTECAS</h1>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>  
+    <ion-card>
+        <img src="../assets/icon/homepage.svg"/>
+        <ion-card-content>
+            <ion-card-title>
+                BIBLIOTECA
+            </ion-card-title>
+            <ion-list>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="../assets/icon/homepage.svg">
+                    </ion-avatar>
+                    <h2 id="diferente">Hemeroteca</h2>
+                    <p>primer piso</p>
+                    <button ion-button item-end round color="blue"(click)="irHemeroteca()"><H2>VER</H2></button>
+                </ion-item>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="../assets/icon/fast-forward.svg">
+                    </ion-avatar>
+                    <h2>Ciencias</h2>
+                    <p>segundo piso</p>
+                    <button ion-button item-end round color="blue" (click)="irCiencias()"><H2>VER</H2></button>
+                </ion-item>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="../assets/icon/rewind.svg">
+                    </ion-avatar>
+                    <h2 class="color">Humanidades</h2>
+                    <p> tercer piso  </p>
+                    <button ion-button item-end round color="blue" (click)="irHumanidad()"><H2 class="color">VER</H2></button>
+                </ion-item>
+                <ion-item>
+                    <ion-avatar item-start>
+                        <img src="../assets/icon/sign-in.svg">
+                    </ion-avatar>
+                    <h2>Sala de Sistemas</h2>
+                    <p class="color">cuarto piso</p>
+                    <button ion-button item-end round color="blue" (click)="irSistemas()"><H2>VER</H2></button>
+                </ion-item>
+
+            </ion-list>
+        </ion-card-content>
+    </ion-card> 
 </ion-content>
+
+
+<ion-footer>
+    <ion-navbar>
+        <ion-title>
+            Aqui va el pie de Pagina   15/08/2018
+        </ion-title>
+    </ion-navbar>
+
+</ion-footer>
