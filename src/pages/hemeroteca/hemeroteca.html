@@ -6,16 +6,50 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>hemeroteca</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>hemeroteca</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    //hay dos formas de trabajar
 
+    12 columnas, filas las que se quieran
+
+    <ion-list>
+        <ion-item>
+            <ion-label ion-text stacked> Ingrese un numero </ion-label>
+            <ion-input type="number"  placeholder="123" [(ngModel)]="numero1"> </ion-input>
+        </ion-item>
+        
+        <ion-item>
+            <ion-label ion-text stacked> Ingrese un numero</ion-label>
+            <ion-input type="number"  placeholder="123" [(ngModel)]="numero2"> </ion-input>
+        </ion-item>
+        <ion-item>
+             {{resultado1}}
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="suma()">SUMA</button>
+        </ion-item>
+        <ion-item>
+            {{resultado2}}
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="resta()">RESTA</button>
+        </ion-item>
+               <ion-item>
+            {{resultado3}}
+        </ion-item>
+        <ion-item>
+            <button ion-button (click)="multiplica()">MULTIPLICACION</button>
+        </ion-item>
+    </ion-list>
 </ion-content>
+
+
 
 <ion-footer>
     <ion-navbar>
