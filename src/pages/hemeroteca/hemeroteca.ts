@@ -14,13 +14,14 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
     templateUrl: 'hemeroteca.html',
 })
 export class HemerotecaPage {
+    /* Variables globales*/
     numero1;
     numero2;
-    resultado1;
-    resultado2;
-    resultado3;
-    resultado4;
-
+    numero3;
+    resultado;
+    edificio;
+    estado;
+    ctrl: boolean = true;
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
 
@@ -28,16 +29,44 @@ export class HemerotecaPage {
         console.log('ionViewDidLoad HemerotecaPage');
     }
     suma() {
-        this.resultado1 = "La suma de" + this.numero1 + "+" +
+        this.resultado = "La suma de " + this.numero1 + "+" +
             this.numero2 + "=" + (parseFloat(this.numero1) + parseFloat(this.numero2));
     }
     resta() {
-        this.resultado2 = "La resta de" + this.numero1 + "-" +
+        this.resultado = "La resta de " + this.numero1 + "-" +
             this.numero2 + "=" + (parseFloat(this.numero1) - parseFloat(this.numero2));
     }
     multiplica() {
-        this.resultado3 = "La multiplicación de" + this.numero1 + "x" +
+        this.resultado = "La multiplicación de " + this.numero1 + "x" +
             this.numero2 + "=" + (parseFloat(this.numero1) * parseFloat(this.numero2));
     }
+    divida() {
+        this.resultado = " La division de " + this.numero1 + "/" +
+            this.numero2 + "=" + (parseFloat(this.numero1) / parseFloat(this.numero2));
+    }
+    cambio(valor) {
+        /**   this.estado=false; */
+        this.ctrl = valor; /**Variable de trazabilidad*/
+        this.tabla();
+    }
+    /**   Para nostrar la tabla de multiplicar
+      tabla() {
+        this.edificio = Array();
+        for (let i = 1; i <= this.numero2; i++) {
+            this.edificio.push({num: this.numero1, ind: i, res: (this.numero1 * i)});
+        }
+    }
+    */
+
+    tabla() {
+        this.estado = true;
+        this.edificio = Array();
+        for (let i = 1; i <= this.numero2; i++) {
+            if ((((this.numero1 * i) % this.numero3) == 0) == this.ctrl) {
+                this.edificio.push({num: this.numero1, ind: i, res: (this.numero1 * i)});
+            }
+        }
+    }
+
 
 }

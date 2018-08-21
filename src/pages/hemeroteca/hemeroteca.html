@@ -23,30 +23,52 @@
             <ion-label ion-text stacked> Ingrese un numero </ion-label>
             <ion-input type="number"  placeholder="123" [(ngModel)]="numero1"> </ion-input>
         </ion-item>
-        
+
         <ion-item>
             <ion-label ion-text stacked> Ingrese un numero</ion-label>
             <ion-input type="number"  placeholder="123" [(ngModel)]="numero2"> </ion-input>
         </ion-item>
         <ion-item>
-             {{resultado1}}
+            <ion-label ion-text fixed> Divisible por</ion-label>
+            <ion-input type="number"  placeholder="123" [(ngModel)]="numero3"> </ion-input>
         </ion-item>
         <ion-item>
-            <button ion-button (click)="suma()">SUMA</button>
+            {{resultado}}
         </ion-item>
+        <!--    <ion-item>
+                <button ion-button (click)="suma()">SUMA</button>
+                <button ion-button (click)="resta()">RESTA</button>
+                <button ion-button (click)="multiplica()">MULTIPLICACION</button>
+                <button ion-button (click)="divida()">DIVIDIR</button>
+            </ion-item>   
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <button ion-button (click)="suma()">SUMA</button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button (click)="resta()">RESTA</button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button (click)="multiplica()">MULTIPLICACION</button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button (click)="divida()">DIVIDIR</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        -->
         <ion-item>
-            {{resultado2}}
+            <button ion-button (click)="tabla()" full>TABLA</button>
         </ion-item>
-        <ion-item>
-            <button ion-button (click)="resta()">RESTA</button>
-        </ion-item>
-               <ion-item>
-            {{resultado3}}
-        </ion-item>
-        <ion-item>
-            <button ion-button (click)="multiplica()">MULTIPLICACION</button>
-        </ion-item>
-    </ion-list>
+        <ion-item *ngIf="estado">
+            <button ion-button (click)="cambio(true)"> Divisibles</button>
+            <button ion-button (click)="cambio(false)"> No divisibles</button>
+        </ion-item> 
+        <ion-item *ngFor="let piso of edificio">         <!--   piso es una variable local y edificio es global -->
+            {{piso.num}}*{{piso.ind}}={{piso.res}}     <!--  los corchetes (()) se usan para mostrar-->   
+    </ion-item>
+</ion-list>
 </ion-content>
 
 
@@ -57,5 +79,4 @@
             Aqui va el pie de Pagina   15/08/2018
         </ion-title>
     </ion-navbar>
-
 </ion-footer>
