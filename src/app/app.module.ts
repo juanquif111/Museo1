@@ -10,6 +10,9 @@ import {HemerotecaPage} from '../pages/hemeroteca/hemeroteca';
 import {CienciasPage} from '../pages/ciencias/ciencias';
 import {HumanidadesPage} from '../pages/humanidades/humanidades';
 import {SistemasPage} from '../pages/sistemas/sistemas';
+import {LisperPage} from '../pages/lisper/lisper';
+import {HttpClientModule} from '@angular/common/http'; // 2. Se debe colocar esta linea
+import { ConectarProvider } from '../providers/conectar/conectar';  //  1. Se crea automaticamente al crear el providers
 @NgModule({
   declarations: [
     MyApp,
@@ -17,11 +20,14 @@ import {SistemasPage} from '../pages/sistemas/sistemas';
     HemerotecaPage,
     CienciasPage,
     HumanidadesPage,
-    SistemasPage
+    SistemasPage,
+    LisperPage  
+
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule   //3. Se debe importar .  ir a conectar.ts
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,12 +36,15 @@ import {SistemasPage} from '../pages/sistemas/sistemas';
     HemerotecaPage,
     CienciasPage,
     HumanidadesPage,
-    SistemasPage
+    SistemasPage,
+    LisperPage
+  
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ConectarProvider
   ]
 })
 export class AppModule {}

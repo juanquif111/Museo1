@@ -4,6 +4,8 @@ import {HemerotecaPage} from '../hemeroteca/hemeroteca';
 import {CienciasPage} from '../ciencias/ciencias';
 import {HumanidadesPage} from '../humanidades/humanidades';
 import {SistemasPage} from '../sistemas/sistemas';
+import {LisperPage} from '../lisper/lisper';  //importar archivo .ts de pagina*/
+
 
 @Component({
     selector: 'page-home',
@@ -28,9 +30,9 @@ export class HomePage {
     }
     irSistemas() {
         this.navCtrl.push(SistemasPage);
-
     }
 
-
-
+    irLisper() {
+        this.navCtrl.push(LisperPage);   //ir a la pagina 
+    }
 }
