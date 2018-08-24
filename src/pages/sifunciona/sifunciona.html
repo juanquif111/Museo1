@@ -1,0 +1,33 @@
+<!--
+  Generated template for the SifuncionaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title> SUMAR NUMEROS DE DOS FORMAS</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Ingrese numero 1</ion-label>
+            <ion-input type="number" [(ngModel)]="num1"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label floating>Ingrese numero 2</ion-label>
+            <ion-input type="number" [(ngModel)]="num2"></ion-input>
+        </ion-item>
+        <ion-item>
+            <button ion-button color="red" (click)="irPaginaA()"> SUMAR SEPARADO </button>
+            <button ion-button color="red" (click)="irPaginaB()"> SUMAR ENVIANDO OBJECT</button>
+        </ion-item>
+     </ion-list>
+
+</ion-content>

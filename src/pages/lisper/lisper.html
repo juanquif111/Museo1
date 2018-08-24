@@ -11,8 +11,6 @@
     </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
     <ion-card>
         <ion-card-header>
@@ -23,8 +21,27 @@
                 <ion-label  floating> Numero de usuarios </ion-label>
                 <ion-input type="number" value="" [(ngModel)]="numero"></ion-input>  <!--ngModel se utiliza para definir una variable global -->
             </ion-item>
-            <button ion-button (click)="consultar()"> TRAER</button>
+            <button ion-button (click)="consultar()"> TRAER</button> <!--lisper.html llama funcion consultar() 
+                                                                      de lisper.ts que a su vez llama a la funcion ejecutar()-->                                                                 
+                      
         </ion-card-content>
-
     </ion-card>
-</ion-content>
+    <ion-list>
+            <!-- <button ion-item *ngFor="let persona of edificio">   Definir una variable persona -->
+            <ion-list>
+                <div *ngFor= "let persona of edificio">           <!--creación de objeto persona -->
+                    <ion-item *ngIf="persona.gender == 'female'">    
+                        <ion-avatar item-start>
+                            <img src="{{ persona.picture.large }}">
+                        </ion-avatar>
+                        <h2>{{ persona.name.first }} {{ persona.name.last }}  </h2>
+                        <p>{{ persona.gender }} <b> con edad </b>{{ persona.dob.age}} </p>
+                        <button ion-button item-end (click)="IrverPerfil(persona)"> VER</button> <!--lisper.html llama funcion de lisper.ts -->                              
+                    </ion-item>
+                </div>
+            </ion-list>  
+            <!--   {{ persona.gender }} -->
+            <!-- </button>        -->
+
+            </ion-list>
+            </ion-content>
