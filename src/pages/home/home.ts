@@ -6,6 +6,7 @@ import {HumanidadesPage} from '../humanidades/humanidades';
 import {SistemasPage} from '../sistemas/sistemas';
 import {LisperPage} from '../lisper/lisper';  //importar archivo .ts de pagina*/
 import {SifuncionaPage} from '../sifunciona/sifunciona';
+import {RegperPage} from '../regper/regper';
 
 @Component({
     selector: 'page-home',
@@ -35,5 +36,8 @@ export class HomePage {
     }
     irSifunciona(){
         this.navCtrl.push(SifuncionaPage);
+    }
+    irRegistroPersona(){
+        this.navCtrl.push(RegperPage);
     }
 }

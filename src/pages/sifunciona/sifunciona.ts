@@ -15,22 +15,24 @@ import {PaginaBPage} from '../pagina-b/pagina-b';
     templateUrl: 'sifunciona.html',
 })
 export class SifuncionaPage {
-    num1;
-    num2;
-    
+    numero1: number;       // variable global
+    numero2: number;       // variable global
+    //caja = {va1: this.numero1, va2: this.numero2};                                   //prueba
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     }
-
     ionViewDidLoad() {
         console.log('ionViewDidLoad SifuncionaPage');
     }
     irPaginaA() {
-        this.navCtrl.push(PaginaAPage, {n1: this.num1, n2: this.num2});
+        //console.table({va1: this.numero1, va2: this.numero2});                         //prueba
+        this.navCtrl.push(PaginaAPage, {va1: this.numero1, va2: this.numero2});
     }
     irPaginaB() {
-        this.navCtrl.push(PaginaBPage);
+        //this.navCtrl.push(PaginaBPage, {bolsa: this.caja});                              //prueba
+        //this.navCtrl.push(PaginaBPage, {bolsa: {va1: this.numero1, va2: this.numero2}}); //prueba
+        this.navCtrl.push(PaginaBPage, {todo: {va1: this.numero1, va2: this.numero2}});
     }
 
 

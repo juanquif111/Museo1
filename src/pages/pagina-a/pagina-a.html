@@ -6,14 +6,16 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title> SUMA SEPARADA</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title> SUMA SEPARADA</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-       
-    {{n1}} + {{n2}} 
+
+    <p> {{n1}}+{{n2}} = {{resultado}}</p> 
+    <p> {{n1}}+{{n2}} = {{resultado2}}</p>
+    <p (click)="suma()"> {{n1}}+{{n2}} = {{resultado3}}</p> 
 </ion-content>

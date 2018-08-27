@@ -14,20 +14,25 @@
 
 
 <ion-content padding>
-    <ion-list>
-        <ion-item>
-            <ion-label floating>Ingrese numero 1</ion-label>
-            <ion-input type="number" [(ngModel)]="num1"></ion-input>
-        </ion-item>
+    <ion-card>
+        <ion-card-header>
+            Opciones de trabajo
+        </ion-card-header>
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Ingrese numero 1</ion-label>
+                <ion-input type="number" [(ngModel)]="numero1"></ion-input>    <!--este numero 1 se debe definir como variable global en el .ts-->
+            </ion-item>
 
-        <ion-item>
-            <ion-label floating>Ingrese numero 2</ion-label>
-            <ion-input type="number" [(ngModel)]="num2"></ion-input>
-        </ion-item>
-        <ion-item>
-            <button ion-button color="red" (click)="irPaginaA()"> SUMAR SEPARADO </button>
-            <button ion-button color="red" (click)="irPaginaB()"> SUMAR ENVIANDO OBJECT</button>
-        </ion-item>
-     </ion-list>
+            <ion-item>
+                <ion-label floating>Ingrese numero 2</ion-label>
+                <ion-input type="number" [(ngModel)]="numero2"></ion-input>     <!--este numero 2 se debe definir como variable global en el .ts-->
+            </ion-item>
+            <ion-item style="text-align:center">
+                <button ion-button color="red" (click)="irPaginaA()"> SUMA SEPARADO </button>
+                <button ion-button color="red" (click)="irPaginaB()"> SUMA OBJETO</button>
+            </ion-item>
+        </ion-list>
+    </ion-card>
 
 </ion-content>
