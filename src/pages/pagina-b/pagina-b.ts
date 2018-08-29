@@ -15,8 +15,8 @@ import {IonicPage, NavController, NavParams} from 'ionic-angular';
 })
 export class PaginaBPage {
     //bolsa: any      //prueba;
-    todo: object;
-    //todo: any;
+    //todo: object;
+    todo: any;
     resultado;
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         //this.bolsa = this.navParams.get("caja");                                    //prueba

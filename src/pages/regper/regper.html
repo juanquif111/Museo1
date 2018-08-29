@@ -18,37 +18,72 @@
         <ion-card-header>
             FORMULARIO DE REGISTRO
         </ion-card-header>
-
         <ion-list>
-            <ion-item>
-                <ion-label floating>Cedula</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Tipo</ion-label>
-                <ion-select>
-                    <ion-option value="ced">Cedula</ion-option>
-                    <ion-option value="reg">Registro Civil</ion-option>
-                    <ion-option value="pasa"> Pasaporte</ion-option>
-                    <ion-option value="tar">tarjeta de identidad</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Nombre</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Apellido</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Telefono</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>Correo</ion-label>
-                <ion-input type="text"></ion-input>
-            </ion-item>                        
+            <form [formGroup]="RegPersona" (ngSubmit)="regPer()" novalidate>   <!-- cuando de click en el boton submit (ngSubmit) ir a regPer()
+                                                                                    novalidate hasta que no valide no puede enviar nada -->
+                <ion-item>
+                    <ion-label floating>Tipo</ion-label>
+                    <ion-select formControlName="tipo">
+                        <ion-option value="1">Cedula</ion-option>
+                        <ion-option value="2">Registro Civil</ion-option>
+                        <ion-option value="2">Pasaporte</ion-option>
+                        <ion-option value="4">tarjeta de identidad</ion-option>
+                        <ion-option value="5">Cedula de extranjeria</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Seleccione la fecha de nacimiento</ion-label>
+                    <ion-datetime formControlName="fecha" displayFormat="DD MM YYYY" pickerFormat="DD-MM-YYYY"> </ion-datetime>
+                </ion-item>
+                <ion-item *ngIf="RegPersona.get('tipo').errors && RegPersona.get('tipo').dirty">
+                    <p color="danger" ion-text *ngIf="RegPersona.get('tipo').hasError('required')"> El campo es requerido</p>                
+                </ion-item>
+                <ion-item>
+                    <ion-label ion-text floating>Cedula</ion-label>
+                    <ion-input type="text" formControlName="numero"></ion-input>  <!-- como no hay ngModel se usa formControlName que permite identificar cada parte del   -->
+                </ion-item>
+                <ion-item *ngIf="RegPersona.get('numero').errors && RegPersona.get('numero').dirty">
+                    <p color="danger" ion-text *ngIf="RegPersona.get('numero').hasError('required')"> El campo es requerido</p>
+                    <p color="danger" ion-text *ngIf="RegPersona.get('numero').hasError('pattern')"> Ej:Solo acepta numeros Ejemplo:12456789</p>    
+                </ion-item>
+                <ion-item>
+                    <ion-label ion-text floating>Nombre</ion-label>
+                    <ion-input type="text" formControlName="nombre"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="RegPersona.get('nombre').errors && RegPersona.get('nombre').dirty">
+                    <p color="danger" ion-text *ngIf="RegPersona.get('nombre').hasError('required')"> El campo es requerido</p>
+                    <p color="danger" ion-text *ngIf="RegPersona.get('nombre').hasError('pattern')"> No debe llevar numero. Ej:Juan </p>    
+                </ion-item>
+                <ion-item>
+                    <ion-label ion-text floating>Apellido</ion-label>
+                    <ion-input type="text" formControlName="apellido"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="RegPersona.get('apellido').errors && RegPersona.get('apellido').dirty">
+                    <p color="danger" ion-text *ngIf="RegPersona.get('apellido').hasError('required')"> El campo es requerido</p>
+                    <p color="danger" ion-text *ngIf="RegPersona.get('apellido').hasError('pattern')">No debe llevar numero. Ej:Quicazaque</p>    
+                </ion-item>
+                <ion-item>
+                    <ion-label ion-text floating>Telefono</ion-label>
+                    <ion-input type="text" formControlName="telefono"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="RegPersona.get('telefono').errors && RegPersona.get('telefono').dirty">
+                    <p color="danger" ion-text *ngIf="RegPersona.get('telefono').hasError('required')"> El campo es requerido</p>
+                    <p color="danger" ion-text *ngIf="RegPersona.get('telefono').hasError('pattern')"> Solo debe llevar numeros ó +. Ej:+576947559.</p>    
+                </ion-item>
+                <ion-item>
+                    <ion-label ion-text floating>Correo</ion-label>
+                    <ion-input type="text" formControlName="correo"></ion-input>
+                </ion-item>
+                <ion-item *ngIf="RegPersona.get('correo').errors && RegPersona.get('correo').dirty">
+                    <p color="danger" ion-text *ngIf="RegPersona.get('correo').hasError('required')"> El campo es requerido</p>
+                    <p color="danger" ion-text *ngIf="RegPersona.get('correo').hasError('email')">No tiene formato de correo </p>
+                    <p color="danger" ion-text *ngIf="RegPersona.get('correo').hasError('minLength')">Debe tener mas de 10 caracteres</p>
+                </ion-item>
+                <ion-item>
+                    <button type="submit" ion-button  [disabled]="!RegPersona.valid"> ALMACENAR</button>
+                    <button type="reset " style="float:right">LIMPIAR</button>
+                </ion-item>
+            </form>
         </ion-list>
     </ion-card>
 </ion-content>
