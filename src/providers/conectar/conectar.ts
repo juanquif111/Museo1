@@ -24,7 +24,9 @@ export class ConectarProvider {
         }
     };
     // metodo que permite enviar datos de la creacion de personas al servidor
-    enviarAlServidor(persona) {
+    enviarAlServidor(persona:any) {
+        return this.http.post("http://192.168.0.223/flas11/controller/registro.php", JSON.stringify(persona),this.options);
+        
 
     }
 
