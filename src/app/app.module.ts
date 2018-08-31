@@ -17,7 +17,8 @@ import {VerperfilPage} from '../pages/verperfil/verperfil';
 import {SifuncionaPage} from '../pages/sifunciona/sifunciona';
 import {PaginaAPage} from '../pages/pagina-a/pagina-a';
 import {PaginaBPage} from '../pages/pagina-b/pagina-b';
-import {RegperPage} from '../pages/regper/regper'
+import {RegperPage} from '../pages/regper/regper';
+import {BusPerPage} from '../pages/bus-per/bus-per';
 @NgModule({
     declarations: [
         MyApp,
@@ -31,7 +32,8 @@ import {RegperPage} from '../pages/regper/regper'
         SifuncionaPage,
         PaginaAPage,
         PaginaBPage,
-        RegperPage
+        RegperPage,
+        BusPerPage
 
     ],
     imports: [
@@ -52,7 +54,8 @@ import {RegperPage} from '../pages/regper/regper'
         SifuncionaPage,
         PaginaAPage,
         PaginaBPage,
-        RegperPage
+        RegperPage,
+        BusPerPage
     ],
     providers: [
         StatusBar,

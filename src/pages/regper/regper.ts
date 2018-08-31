@@ -52,9 +52,19 @@ export class RegperPage {
         //console.table(this.RegPersona.value);
         //
         //consumir el provider
-        let estado = this.conectar.enviarAlServidor(this.RegPersona.value);
+        let estado = this.conectar.enviarAlServidor(this.RegPersona.value);   // llena la variable estado con el resultado de llamar al metodo enviarAlServidor(persona) de la clase ConectarProvider en el archivo conectar.ts
         //
-        estado.subscribe(data => { },    //lo que me va a responder mi servidor  ,
+        estado.subscribe(data => { //lo que me va a responder mi servidor  ,
+            //console.log(data);
+            let res: any = data;
+            this.miventana.dismiss();
+            if (res.success == "ok") {    //si es ok en registro php se muestra esto.
+                this.mostrarAlerta("Positivo", "El usuario fue registrado perfectamente");
+            } else {                      //si no se muestra esto
+                this.mostrarAlerta("Error #7", "En el sistema ya esta registrada esta cedula");
+                this.iniciarFormulario();
+            }
+        },
             err => {
                 this.miventana.dismiss();
                 this.mostrarAlerta("Error #6", "No existe conexion con el servidor.Verifique la conexión");
