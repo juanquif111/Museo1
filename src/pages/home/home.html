@@ -8,7 +8,7 @@
 
 <ion-content>  
     <ion-card>
-        <img src="../assets/icon/homepage.svg"/>
+        <img src="../assets/icon/biblioteca.svg"/>
         <ion-card-content>
             <ion-card-title>
                 BIBLIOTECA
@@ -16,7 +16,7 @@
             <ion-list>
                 <ion-item>
                     <ion-avatar item-start>
-                        <img src="../assets/icon/homepage.svg">
+                        <img src="..//assets/icon/hemeroteca.svg">
                     </ion-avatar>
                     <h2 id="diferente">Hemeroteca</h2>
                     <p>primer piso</p>
@@ -24,7 +24,7 @@
                 </ion-item>
                 <ion-item>
                     <ion-avatar item-start>
-                        <img src="../assets/icon/fast-forward.svg">
+                        <img src="../assets/icon/ciencias.svg">
                     </ion-avatar>
                     <h2>Ciencias</h2>
                     <p>segundo piso</p>
@@ -32,7 +32,7 @@
                 </ion-item>
                 <ion-item>
                     <ion-avatar item-start>
-                        <img src="../assets/icon/rewind.svg">
+                        <img src="../assets/icon/humanidades.svg">
                     </ion-avatar>
                     <h2 class="color">Humanidades</h2>
                     <p> tercer piso  </p>
@@ -40,7 +40,7 @@
                 </ion-item>
                 <ion-item>
                     <ion-avatar item-start>
-                        <img src="../assets/icon/sign-in.svg">
+                        <img src="../assets/icon/sistemas.svg">
                     </ion-avatar>
                     <h2>Sala de Sistemas</h2>
                     <p class="color">cuarto piso</p>
@@ -48,20 +48,23 @@
                 </ion-item>
                 <ion-item>
                     <ion-avatar item-start>
-                        <img src="../assets/icon/sign-in.svg">
+                        <img src="../assets/icon/listaPersonas.svg">
                     </ion-avatar>
                     <h2>lista de Personas</h2>
                     <p class="color">quinto piso</p>
                     <button ion-button item-end round color="blue" (click)="irLisper()"><H2>IR A LISTADO</H2></button> <!-- Invocar funcion-->
                 </ion-item>
                 <ion-item>
-                     <img src="../assets/icon/fast-forward.svg" (click)="irSifunciona()">
+                    <img src="../assets/icon/suma-y-resta.svg" (click)="irSifunciona()">
                 </ion-item>
                 <ion-item style="text-align:center">
-                    <button ion-button item-end round color="RED" (click)="irRegistroPersona()" ><H2>REGISTRARSE</H2></button>
+                    <ion-avatar item-start>
+                        <img src="../assets/icon/sign-in.svg">
+                    </ion-avatar>
+                    <p align="center"><button ion-button item-end round color="RED" (click)="irRegistroPersona()" ><H2>REGISTRARSE</H2></button></p>
                 </ion-item>
                 <ion-item style="text-align:center">
-                    <button ion-button item-end round color="BLUE" (click)="irBuscarPersona()" ><H2>BUSCAR PERSONAS</H2></button>
+                    <p align="center"><button ion-button item-end round color="BLUE" (click)="irBuscarPersona()" ><H2>BUSCAR PERSONAS</H2></button></p>
                 </ion-item>
             </ion-list>
         </ion-card-content>

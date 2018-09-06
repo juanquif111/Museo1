@@ -8,6 +8,7 @@ import {LisperPage} from '../lisper/lisper';  //importar archivo .ts de pagina*/
 import {SifuncionaPage} from '../sifunciona/sifunciona';
 import {RegperPage} from '../regper/regper';
 import {BusPerPage} from '../bus-per/bus-per';
+import {ActuperPage} from '../actuper/actuper';
 
 @Component({
     selector: 'page-home',
@@ -43,5 +44,8 @@ export class HomePage {
     }
     irBuscarPersona(){
         this.navCtrl.push(BusPerPage);
+    }
+    irActuPer(){
+        this.navCtrl.push(ActuperPage);
     }
 }

@@ -19,21 +19,39 @@
             <ion-list>
                 <ion-item>
                     <ion-label ion-text floating> Filtro </ion-label>
-                    <ion-select [(ngModel)]= "item">
+                    <ion-select [(ngModel)]= "item" (ionChange)="verifique()"> <!-- (ionChange)="verifique() cuando exista un cambio -->
                         <ion-option value="1">Todos</ion-option>
-                        <ion-option value="2">Nombre</ion-option>
-                        <ion-option value="3">Cedula</ion-option>
-                        <ion-option value="4">telefono</ion-option>
-                        <ion-option value="5">correo</ion-option>
+                        <ion-option value="nombre">Nombre</ion-option>
+                        <ion-option value="apellido">Apellido</ion-option>
+                        <ion-option value="CC">Cedula</ion-option>
+                        <ion-option value="telefono">telefono</ion-option>
+                        <ion-option value="email">correo</ion-option>
                     </ion-select>
                 </ion-item>
-                <ion-item *ngIf="item!=1?true:false">
-                    <ion-label>opciones de filtro</ion-label>
-                    <ion-input ion-text [(ngModel)]= "criterio"></ion-input>                    
+                <ion-item *ngIf="item!=1?true:false">  <!-- si item es diferente de 1 se activa este ion-item (true) de lo contrario no   -->
+                    <ion-label ion-text floating>opciones de filtro</ion-label>
+                    <ion-input [(ngModel)]= "criterio"></ion-input>                    
                 </ion-item>
                 <ion-item>
                     <button ion-button style="float:right;" (click)="buscar()">Buscar</button>
                 </ion-item>
             </ion-list>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+                Los resultados son:
+            </ion-card-header>
+            <ion-card-content>
+                <ion-list>
+                    <ion-item *ngFor="let persona of edificio">
+                        <ion-avatar item-start>
+                            <img src="http://192.168.0.223/flas11/img/{{persona.foto}}">
+                        </ion-avatar>
+                        <h2>{{persona.nombre}} {{persona.apellido}}</h2>
+                        <p>{{persona.email}}</p>
+                        <button ion-button clear item-end (click)="verPerfil(persona)">Ver Perfil</button>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
         </ion-card>
     </ion-content>

@@ -24,10 +24,18 @@ export class ConectarProvider {
         }
     };
     // metodo que permite enviar datos de la creacion de personas al servidor
-    enviarAlServidor(persona:any) {
-        return this.http.post("http://192.168.0.223/flas11/controller/registro.php", JSON.stringify(persona),this.options);
-        
+    enviarAlServidor(persona: any) {
+        return this.http.post("http://192.168.0.223/flas11/controller/registro.php", JSON.stringify(persona), this.options);  // envia los datos que vienen de 
+
 
     }
+    servidorBuscar(criterio: any) {
+        return this.http.post("http://192.168.0.223/flas11/controller/buscar.php", JSON.stringify(criterio), this.options);
+
+    }
+    servidorActualizar(newPersona) {
+        return this.http.post("http://192.168.0.223/flas11/controller/actualizar.php", JSON.stringify(newPersona), this.options);
+    }
+
 
 }

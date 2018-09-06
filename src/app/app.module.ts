@@ -3,7 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
-
+import {Camera, CameraOptions} from '@ionic-native/camera';  //aparece error cuando no se ha instalado el paquete 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {HemerotecaPage} from '../pages/hemeroteca/hemeroteca';
@@ -19,6 +19,9 @@ import {PaginaAPage} from '../pages/pagina-a/pagina-a';
 import {PaginaBPage} from '../pages/pagina-b/pagina-b';
 import {RegperPage} from '../pages/regper/regper';
 import {BusPerPage} from '../pages/bus-per/bus-per';
+import {PerperPage} from '../pages/perper/perper';
+import {ActuperPage} from '../pages/actuper/actuper';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -33,7 +36,10 @@ import {BusPerPage} from '../pages/bus-per/bus-per';
         PaginaAPage,
         PaginaBPage,
         RegperPage,
-        BusPerPage
+        BusPerPage,
+        PerperPage,
+        ActuperPage
+        
 
     ],
     imports: [
@@ -55,13 +61,16 @@ import {BusPerPage} from '../pages/bus-per/bus-per';
         PaginaAPage,
         PaginaBPage,
         RegperPage,
-        BusPerPage
+        BusPerPage,
+        PerperPage,
+        ActuperPage
     ],
     providers: [
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        ConectarProvider
+        ConectarProvider,
+        Camera,        
     ]
 })
 export class AppModule {}
