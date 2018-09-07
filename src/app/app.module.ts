@@ -21,6 +21,8 @@ import {RegperPage} from '../pages/regper/regper';
 import {BusPerPage} from '../pages/bus-per/bus-per';
 import {PerperPage} from '../pages/perper/perper';
 import {ActuperPage} from '../pages/actuper/actuper';
+import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
 
 @NgModule({
     declarations: [
@@ -39,7 +41,7 @@ import {ActuperPage} from '../pages/actuper/actuper';
         BusPerPage,
         PerperPage,
         ActuperPage
-        
+
 
     ],
     imports: [
@@ -70,7 +72,11 @@ import {ActuperPage} from '../pages/actuper/actuper';
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         ConectarProvider,
-        Camera,        
+        Camera,
+        FileTransfer,
+        //FileUploadOptions,
+        FileTransferObject,
+        File
     ]
 })
 export class AppModule {}

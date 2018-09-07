@@ -30,6 +30,10 @@
             <button ion-button style="float:right;" color="danger"(click)="showConfirm()" >ELIMINAR</button>
         </ion-card-content>
     </ion-card>
-    <div style="align-content:center;"><img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300"/></div>
+    <ion-card *ngIf="imageURI">
+        <div style="align-content:center;"><img src="{{imageURI}}"  alt="Ionic File" width="300"/></div>
+        <button ion-button style="float:right;" color="danger"(click)="cargarFoto()" >ELIMINAR</button>
+    </ion-card>
+    
 </ion-content>
 

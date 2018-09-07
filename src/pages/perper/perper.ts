@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams, AlertController, ToastController} f
 import {Camera, CameraOptions} from '@ionic-native/camera';
 import {ActuperPage} from '../actuper/actuper';
 import {ConectarProvider} from '../../providers/conectar/conectar';
+import {LoadingController} from 'ionic-angular';
+import {FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 
 
 @IonicPage()
@@ -16,7 +18,9 @@ export class PerperPage {
     imageURI;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private camara: Camera, private conecta: ConectarProvider,
-        public toastCtrl: ToastController, public alertCtrl: AlertController) {
+        public toastCtrl: ToastController, public alertCtrl: AlertController, private transfer: FileTransfer,
+        public loadingCtrl: LoadingController
+    ) {
         this.persona = this.navParams.get("per");  // coje el parametro per enviado desde bus-per.ts y lo guarda en variable persona.
         this.calidad = 50;
     }
@@ -104,6 +108,47 @@ export class PerperPage {
             position: 'top'
         });
         toast.present();
+    }
+    info;
+    ruta= "http://192.168.0.223/flas11";
+    cargarFoto() {
+        let loader = this.loadingCtrl.create({
+            content: "<b>El archivo esta Cargado...</b>"
+        });
+        loader.present();
+        const fileTransfer: FileTransferObject = this.transfer.create();
+        var datos = {id: this.persona.id, type: 'Cliente'};
+        let options: FileUploadOptions = {
+            fileKey: 'ionicfile',
+            fileName: 'ionicfile',
+            chunkedMode: false,
+            mimeType: "image/jpeg",
+            headers: {},
+            httpMethod: 'POST',
+            params: datos
+        }
+        this.info = "Procesando";
+        fileTransfer.upload(this.imageURI, this.ruta + 'Controller/SubirFoto.php', options)
+            .then((data) => {
+                this.actualizar(data);
+                // this.info = JSON.stringify(data)+" -> Lo que llega";
+                loader.dismiss();
+            }, (err) => {
+                console.log(err);
+                loader.dismiss();
+                this.info = " -> Error de Comunicación";
+                // Puede Colocar una alerta de que existe un problema con el servidor
+            });
+    }
+    actualizar(data) {
+        if (data.response != "no") {
+            this.imageURI = this.ruta + "img/" + JSON.parse(data.response).success;
+            this.info = "La imagen fue cargada";
+            // Puede Colocar una alerta de que la imagen fue cargada
+        } else {
+            // Puede Colocar una alerta de que la imagen NO fue cargada
+            this.info = "La imagen no fue cargada";
+        }
     }
 
 
