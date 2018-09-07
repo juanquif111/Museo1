@@ -110,7 +110,7 @@ export class PerperPage {
         toast.present();
     }
     info;
-    ruta= "http://192.168.0.223/flas11";
+    ruta= "http://192.168.0.223/flas11/";
     cargarFoto() {
         let loader = this.loadingCtrl.create({
             content: "<b>El archivo esta Cargado...</b>"
