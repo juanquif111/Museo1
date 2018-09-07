@@ -26,9 +26,8 @@
             <p>Email: {{persona.email}}</p>                  <!--utiliza la variable persona que se creo y lleno en el perper.ts-->
             <p>Fecha de Nacimiento: {{persona.fecnac}}</p>   <!--utiliza la variable persona que se creo y lleno en el perper.ts-->
             <p># Celular: {{persona.telefono}}</p>           <!--utiliza la variable persona que se creo y lleno en el perper.ts-->
-            <ion-item style="text-align:center">
-                <p align="center"><button ion-button item-end round color="BLUE" (click)="irActuPer()" ><H2>ACTUALIZAR PERFIL</H2></button></p>
-            </ion-item>
+            <button ion-button style="float:left;" color="BLUE" (click)="irActuPer()" >ACTUALIZAR</button>
+            <button ion-button style="float:right;" color="danger"(click)="showConfirm()" >ELIMINAR</button>
         </ion-card-content>
     </ion-card>
     <div style="align-content:center;"><img src="{{imageURI}}" *ngIf="imageURI" alt="Ionic File" width="300"/></div>

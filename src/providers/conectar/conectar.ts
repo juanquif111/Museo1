@@ -36,6 +36,11 @@ export class ConectarProvider {
     servidorActualizar(newPersona) {
         return this.http.post("http://192.168.0.223/flas11/controller/actualizar.php", JSON.stringify(newPersona), this.options);
     }
+    servidorEliminar(persona:any) {
+        let codigo={id:persona.ID}
+        return this.http.post("http://192.168.0.223/flas11/controller/eliminar.php", JSON.stringify(persona), this.options);
+    }
+    
 
 
 }
